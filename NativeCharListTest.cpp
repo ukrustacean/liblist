@@ -64,7 +64,7 @@ TEST(NativeCharListTest, ReverseReversesTheList) {
 TEST(NativeCharListTest, FindFirstReturnsCorrectIndex) {
     NativeCharList list({'a', 'b', 'c', 'b'});
     EXPECT_EQ(list.FindFirst('b'), 1);
-    EXPECT_EQ(list.FindFirst('z'), 1);
+    EXPECT_EQ(list.FindFirst('z'), -1);
 }
 
 TEST(NativeCharListTest, FindLastReturnsCorrectIndex) {
