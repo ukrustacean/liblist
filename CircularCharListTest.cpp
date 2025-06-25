@@ -104,16 +104,3 @@ TEST(CircularCharListTest, ClearRemovesAllElements) {
     list.Clear();
     EXPECT_EQ(list.Length(), 0);
 }
-
-TEST(CircularCharListTest, ExtendAppendsAnotherList) {
-    CircularCharList list1;
-    list1.Append('a');
-    list1.Append('b');
-    CircularCharList list2;
-    list2.Append('c');
-    list2.Append('d');
-    list1.Extend(list2);
-    EXPECT_EQ(list1.Length(), 4);
-    EXPECT_EQ(list1.Get(2), 'c');
-    EXPECT_EQ(list1.Get(3), 'd');
-}

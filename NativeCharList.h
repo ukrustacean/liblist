@@ -2,12 +2,11 @@
 #define NATIVECHARLIST_H
 
 #include <vector>
+#include <initializer_list>
 
-
-class NativeCharList : std::vector<char> {
+class NativeCharList : public std::vector<char> {
 public:
-    template<class T>
-    NativeCharList(T initializer): std::vector<char>(initializer) {}
+    NativeCharList(std::initializer_list<char> initializer): std::vector<char>(initializer) {}
     template<class Start, class End>
     NativeCharList(Start start, End end): std::vector<char>(start, end) {}
 

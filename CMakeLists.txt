@@ -9,7 +9,14 @@ add_library(liblist STATIC liblist.cpp
         CircularCharList.cpp
         CircularCharList.h)
 
-include(GoogleTest)
+include(FetchContent)
+FetchContent_Declare(
+        googletest
+        URL https://github.com/google/googletest/archive/03597a01ee50ed33e9dfd640b249b4be3799d395.zip
+)
+FetchContent_MakeAvailable(googletest)
+
+enable_testing()
 
 add_executable(liblist_tests
         NativeCharList.cpp
@@ -19,4 +26,10 @@ add_executable(liblist_tests
         CircularCharList.h
         CircularCharListTest.cpp)
 
-gtest_add_tests(TARGET liblist_tests)
+target_link_libraries(
+        liblist_tests
+        GTest::gtest_main
+)
+
+include(GoogleTest)
+gtest_discover_tests(liblist_tests)

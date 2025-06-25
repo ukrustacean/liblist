@@ -2,8 +2,7 @@
 #include "NativeCharList.h"  // Replace with actual path
 
 TEST(NativeCharListTest, ConstructorWithInitializerList) {
-    std::vector x {'a', 'b', 'c'};
-    NativeCharList list(x.begin(), x.end());
+    NativeCharList list({'a', 'b', 'c'});
     EXPECT_EQ(list.Length(), 3);
     EXPECT_EQ(list.Get(0), 'a');
     EXPECT_EQ(list.Get(1), 'b');
@@ -32,8 +31,7 @@ TEST(NativeCharListTest, InsertElementAtIndex) {
 }
 
 TEST(NativeCharListTest, RemoveReturnsAndRemovesElementAtIndex) {
-    std::vector x {'a', 'b', 'c'};
-    NativeCharList list(x.begin(), x.end());
+    NativeCharList list({'x', 'y', 'z'});
     char removed = list.Remove(1);
     EXPECT_EQ(removed, 'y');
     EXPECT_EQ(list.Length(), 2);
@@ -41,8 +39,7 @@ TEST(NativeCharListTest, RemoveReturnsAndRemovesElementAtIndex) {
 }
 
 TEST(NativeCharListTest, RemoveAllRemovesAllOccurrences) {
-    std::vector x {'a', 'b', 'a', 'c', 'a'};
-    NativeCharList list(x.begin(), x.end());
+    NativeCharList list({'a', 'b', 'a', 'c', 'a'});
     list.RemoveAll('a');
     EXPECT_EQ(list.Length(), 2);
     EXPECT_EQ(list.Get(0), 'b');
@@ -50,16 +47,14 @@ TEST(NativeCharListTest, RemoveAllRemovesAllOccurrences) {
 }
 
 TEST(NativeCharListTest, CloneCreatesIdenticalCopy) {
-    std::vector x {'a', 'b', 'c'};
-    NativeCharList original(x.begin(), x.end());
+    NativeCharList original({'a', 'b', 'c'});
     NativeCharList copy = original.Clone();
     EXPECT_EQ(copy.Length(), 3);
     EXPECT_EQ(copy.Get(1), 'b');
 }
 
 TEST(NativeCharListTest, ReverseReversesTheList) {
-    std::vector x {'1', '2', '3'};
-    NativeCharList list(x.begin(), x.end());
+    NativeCharList list({'1', '2', '3'});
     list.Reverse();
     EXPECT_EQ(list.Get(0), '3');
     EXPECT_EQ(list.Get(1), '2');
@@ -67,22 +62,19 @@ TEST(NativeCharListTest, ReverseReversesTheList) {
 }
 
 TEST(NativeCharListTest, FindFirstReturnsCorrectIndex) {
-    std::vector x {'a', 'b', 'c', 'b'};
-    NativeCharList list(x.begin(), x.end());
+    NativeCharList list({'a', 'b', 'c', 'b'});
     EXPECT_EQ(list.FindFirst('b'), 1);
     EXPECT_EQ(list.FindFirst('z'), -1);
 }
 
 TEST(NativeCharListTest, FindLastReturnsCorrectIndex) {
-    std::vector x {'a', 'b', 'c', 'b'};
-    NativeCharList list(x.begin(), x.end());
+    NativeCharList list({'a', 'b', 'c', 'b'});
     EXPECT_EQ(list.FindLast('b'), 3);
     EXPECT_EQ(list.FindLast('z'), -1);
 }
 
 TEST(NativeCharListTest, ClearRemovesAllElements) {
-    std::vector x {'x', 'y', 'z'};
-    NativeCharList list(x.begin(), x.end());
+    NativeCharList list({'x', 'y', 'z'});
     list.Clear();
     EXPECT_EQ(list.Length(), 0);
 }

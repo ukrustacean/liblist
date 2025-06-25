@@ -44,7 +44,7 @@ auto NativeCharList::FindFirst(char element) -> int {
 
 auto NativeCharList::FindLast(char element) -> int {
     const auto it = std::find(rbegin(), rend(), element);
-    return it == rend() ? -1 : static_cast<int>(it - rbegin());
+    return it == rend() ? -1 : static_cast<int>(rend() - it - 1);
 }
 
 auto NativeCharList::Clear() -> void {
