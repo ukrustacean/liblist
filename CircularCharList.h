@@ -5,6 +5,8 @@
 #ifndef CIRCULARCHARLIST_H
 #define CIRCULARCHARLIST_H
 
+#include <cstddef>
+
 class CircularCharList {
     struct Node {
         char value;
@@ -14,7 +16,7 @@ class CircularCharList {
     auto Last() const -> Node* ;
 
     template<class F>
-    auto ForEach(F func) -> void {
+    auto ForEach(F func) const -> void {
         if (head == nullptr) return;
 
         auto it = head;

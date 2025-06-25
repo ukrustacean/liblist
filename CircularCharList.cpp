@@ -1,4 +1,5 @@
 #include "CircularCharList.h"
+#include <stdexcept>
 
 auto CircularCharList::Last() const -> Node * {
     if (!head) return nullptr;

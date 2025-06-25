@@ -1,5 +1,7 @@
 #include "NativeCharList.h"
 
+#include <algorithm>
+
 auto NativeCharList::Length() const -> size_t {
     return size();
 }
